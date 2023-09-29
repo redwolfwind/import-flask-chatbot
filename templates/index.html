@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=PgWjVQeB"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <style>
+        body, h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-image: url('https://t3.ftcdn.net/jpg/02/66/56/76/240_F_266567677_5ZcfjBF5nsk6UwJqhhmwuZYIB6io1p1w.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        #mainDiv {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75%;
+            text-align: center;
+        }
+        #Lhead {
+            width: 40%;
+            height: auto;
+						background-image: url('https://www.lifepng.com/wp-content/uploads/2020/12/Lego-Face-png-hd.png');
+						width: 40%;
+						height: auto;
+
+						background-position: center;
+						position: absolute;
+        }
+    
+        #hair {
+            width: 450px;
+            height: 420px;
+            background-image: url('https://tr.rbxcdn.com/aea2de42472fdf195b37ebdd4b30a159/420/420/Hat/Png');
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 400px;
+            margin: auto;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-right: 20px;
+        }
+        .action-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<div id="mainDiv">
+    <h1 id="tex">Ai Chatbot</h1>
+    <div id ="Lhead"></div>
+    <div id="hair"></div>
+
+
+    <form method="POST">
+        <label for="get">Enter your response</label>
+        <input name="get" id="get" type="text">
+        <input type="submit" class="action-button" value="Submit">
+    </form>
+    <div>
+        <button id="prevButton" class="action-button" onclick="changeHair(-1)">Previous Hair</button>
+        <button id="nextButton" class="action-button" onclick="changeHair(1)">Next Hair</button>
+        <input onclick="speakAI();" type='submit' value='🔊 Play' />
+    </div>
+    <p>{{aichat}}</p>
+</div>
+
+<script>
+    // Define an array of hair images
+    var hairImages = [
+        "https://www.freepnglogos.com/uploads/hair-png/pin-virendra-surya-hairstyles-hair-png-picsart-11.png",
+        "https://tr.rbxcdn.com/aea2de42472fdf195b37ebdd4b30a159/420/420/Hat/Png",
+        "https://cdn.merlinssteine.de/pieces/2010_120-bl.webp?v=5",
+        "https://toppng.com/uploads/thumbnail/hair-png-hair-png-cb-picsart-hair-png-cb-hair-png-hair-png-for-mens-115632830726w2ealiqhm.png"
+        // Add more hair images as needed
+    ];
+
+    var currentHairIndex = 0; // Initialize with the default hair image index
+
+    // Define an array of face images
+    var faceImages = [
+        "https://i.pinimg.com/originals/de/2b/7e/de2b7eb40dd78166e13f4a37bbafc8b3.png",
+        "https://clipart.info/images/minicovers/1495815251lego-clip-art-lego-face-kid-toy.png",
+				"https://th.bing.com/th/id/OIP.srEisWcrAXwo0kLR6PwbVwHaLF?pid=ImgDet&rs=1"
+        // Add more face images as needed
+    ];
+
+    var currentFaceIndex = 0; // Initialize with the default face image index
+
+    // Function to change the hair background image
+    function changeHair(direction) {
+        currentHairIndex += direction;
+
+        // Ensure the index stays within bounds
+        if (currentHairIndex < 0) {
+            currentHairIndex = hairImages.length - 1;
+        } else if (currentHairIndex >= hairImages.length) {
+            currentHairIndex = 0;
+        }
+
+        // Set the new hair background image
+        var hairDiv = document.getElementById("hair");
+        hairDiv.style.backgroundImage = "url(" + hairImages[currentHairIndex] + ")";
+    }
+
+    // Function to change the face background image
+    function changeFace() {
+        // currentFaceIndex = (currentFaceIndex + 1) % faceImages.length;
+        var faceDiv = document.getElementById("Lhead");
+				faceDiv.style.backgroundImage = "url(" + faceImages[currentFaceIndex] + ")";
+				console.log("Hi");
+				
+        // faceDiv.style.backgroundImage = faceImages[currentFaceIndex];
+			
+    }
+		changeFace();
+		console.log("HIIII");
+    function speakAI() {
+        var aiValue;
+
+        if ("{{aichat}}" == "None") {
+            aiValue = "Hello Judges"; // Greet the judges only the first time
+        } else {
+            aiValue = "{{aichat}}"; // Use the contents
+        // of the aichat variable
+        }
+
+        // Trigger mouth animation when speaking
+
+
+        responsiveVoice.speak(aiValue);
+
+        // Change face every 3 seconds
+        
+    }
+	
+    // Call speakAI when needed
+    // document.querySelector("#mainDiv input[type='submit']").addEventListener("click", speakAI);
+</script>
+</body>
+</html>
