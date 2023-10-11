@@ -29,12 +29,10 @@ def classify(text):
 def response(label):
     global get_data
     if label == "Good":
-        get_data = "Your Good"
+        get_data = "Thats great, I know you like music, We should celebrate by, playing the Happy song, Bot, give us, a beat"
     elif label == "Bad":
-        get_data = "I am sorry, when i am sad, i like to draw a picture"
-    else:
-        get_data = "I don't understand."
-@app.route('/')
+        get_data = "I am sorry, I know you like art, why dont you, and bot, draw a picture, to feel better"
+
 
 
 @app.route('/', methods=['GET', 'POST'])
