@@ -26,7 +26,8 @@
 
 		<div id = "formDiv">
 	    <form method="POST">
-	        <label for="get">Enter your response</label>
+	        <!-- <label for="get">Enter your response</label> -->
+					<h1>Enter your response</h1>
 	        <input name="get" id="get" type="text">
 				
 	        <input type="submit" class="action-button" value="Submit">
@@ -35,8 +36,12 @@
 	        
 	        <button onclick="speakAI(0);" type='submit'>🔊 Play </button>
 	    </div>
-	    <p>{{aichat}}</p>
+	    
 			</div>
+		</div>
+		<div id = "cDiv">
+			<h1> Captions</h1>
+			<h5> {{aichat}}</h5>
 		</div>
 		<div id = "aDiv">
 			<h1> Accessories</h1>
@@ -65,8 +70,8 @@
     var hairImages = [
         "https://www.freepnglogos.com/uploads/hair-png/pin-virendra-surya-hairstyles-hair-png-picsart-11.png",
         "https://tr.rbxcdn.com/aea2de42472fdf195b37ebdd4b30a159/420/420/Hat/Png",
-				"/static/crown.png",
-        "https://toppng.com/uploads/thumbnail/hair-png-hair-png-cb-picsart-hair-png-cb-hair-png-hair-png-for-mens-115632830726w2ealiqhm.png"
+				"/static/crown.png"
+        
         // Add more hair images as needed
     ];
 
@@ -92,43 +97,24 @@
     }
 
     // Function to change the face background image
+		
+		
+		
+		 
 		var running = false;
-		var open = false;
-		var mouthImg = document.getElementById("closed");
-		var move;
-		var voice;
-		function StartAnimation(){
-			move = setInterval(function(){
-				if(open){
-					open = false;
-					mouthImg.src = "../static/mouthclosed.png"
-				}
-				else{
-					open = true;
-					mouthImg.src = "../static/mouthopen.png"
-				}
-			}, 200)
-		}
-		function EndAnimation(){
-			running = false;
-			clearInterval(move);
-			open = false;
-			mouthImg.src = "../static/mouthclosed.png"
-		}
-		
-		
-		
 		 var voice = "Australian Male";
 
         // Function to set the voice and call responsiveVoice
 		function sayVoice(selectedVoice) {
-				// Set the global voice variable
-				console.log(selectedVoice)
-				voice = selectedVoice;
+			// Set the global, voice variable
+			console.log(selectedVoice);
+			voice = selectedVoice;
 		}
-		if("{{aichat}}" != "None"){
-			speakAI(0);
-		}
+		// if("{{aichat}}" != "None"){
+		// 	speakAI(0);
+		// }
+		//
+		
     function speakAI(number) {
       var aiValue;	
 			if(running == false){
@@ -149,7 +135,13 @@
 					// of the aichat variable
 					}
 			}
-			
+			console.log(voice);
+			console.log("Voicevoice");
+			if(voice == "undefined" || voice == null){
+				voice = "Australian Male";
+			}
+			console.log(voice);
+			console.log("Voicevoice");
       responsiveVoice.speak(aiValue, voice, {onstart: StartAnimation, onend: EndAnimation});
 
         // Change face every 3 seconds
