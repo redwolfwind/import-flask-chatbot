@@ -1,0 +1,145 @@
+body, h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+}
+body {
+		background-image: url('https://t3.ftcdn.net/jpg/02/66/56/76/240_F_266567677_5ZcfjBF5nsk6UwJqhhmwuZYIB6io1p1w.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width:100%;
+		font-family: Arial, sans-serif;
+}
+#mainDiv {
+		
+		left:25%;
+		position:absolute;
+		top:200px;
+		width: 90%;
+		text-align: center;
+		display:flex;
+}
+#con{
+
+	padding: 50px;
+	height: 850px;
+	overflow: visible;
+}
+#Lhead {
+		width: 550px;
+		height: 550px;
+		z-index: 5;
+		background-repeat: no-repeat;
+		background-position: 0px 50px;
+		background-size:cover;
+		background-image: url('../static/faceclosed.png');
+		
+}
+
+#hair {
+		width: 500px;
+		height: 400px;
+		background-image: url('/static/crown.png');
+		background-position: center;
+		background-size: cover;
+		z-index: 10;
+		position: absolute; 
+		bottom: 500px;
+		left: 80px;
+		overflow: visible;
+}
+form {
+	postition: absolute !important;
+	left: 80%; 
+
+	
+	max-width: 90%;
+}
+.action-button {
+		background-color: #007bff;
+		color: #fff;
+		border: none;
+		padding: 10px 20px;
+		cursor: pointer;
+		border-radius: 5px;
+		font-size: 16px;
+		margin-top: 10px;
+}
+.action-button:hover {
+		background-color: #0056b3;
+}
+#eyes{
+	position:absolute;
+	top:370px;
+	left:230px;
+	width:200px;
+	height:75px;
+	background-image:cover;
+}
+#closed{
+	position:absolute;
+	top:455px;
+	left:285px;
+	background-image:cover;
+	height: 100px;
+	width: 100px;
+	
+}
+#formDiv{
+	
+	position:absolute;
+	top:350px;
+	background-color: lightblue;
+	border-radius: 10px;
+	padding: 10px;
+	width:270px;
+	right: 200px !important;
+}
+.label{
+	width:100%; 
+	
+}
+.label label{
+	width:40%;
+}
+.label input{
+	width:55%;
+}
+#voiceDiv{
+	position:absolute;
+	top:450px;
+	background-color: lightblue;
+	border-radius: 10px;
+	padding: 10px;
+
+	width:300px;
+	margin:10px;
+
+}
+#demoDiv{
+	position:absolute;
+	top:200px;
+	background-color: lightblue;
+	border-radius: 10px;
+	padding: 10px;
+
+	width:300px;
+	margin:10px;
+}
+#aDiv{
+	position:absolute;
+	top:220px;
+	background-color: lightblue;
+	border-radius: 10px;
+	padding: 10px;
+	width:270px;
+	left:920px;
+}
+#cDiv{
+	position:absolute;
+	top:350px;
+	background-color: lightblue;
+	border-radius: 10px;
+	padding: 10px;
+	width:270px;
+	left:920px;
+}
